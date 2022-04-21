@@ -5,7 +5,6 @@ import Show from "components/Appointment/Show.jsx";
 import Empty from "components/Appointment/Empty.jsx";
 
 export default function Appointment(props) {
-
   return (
     <article className="appointment">
       <Header time={props.time}/>
