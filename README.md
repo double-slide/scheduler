@@ -1,5 +1,8 @@
 # Interview Scheduler
 
+A project for Lighthouse Labs Web Dev program using React.
+
+
 ## Setup
 
 Install dependencies with `npm install`.
