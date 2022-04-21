@@ -11,14 +11,6 @@ export default function DayListItem(props) {
     { "day-list__item--full": !props.spots }
   );
   
-  
-  console.log("props.spots:", props.spots);
-
-
-  // const spotString = ;
-
-  // console.log("dayClass:", dayClass);
-
   return (
     <li
       className={dayClass}
@@ -29,6 +21,7 @@ export default function DayListItem(props) {
     </li>
   );
 };
+
 
 const formatSpots = function(spots) {
 
