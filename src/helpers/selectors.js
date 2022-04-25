@@ -1,9 +1,9 @@
-export function getAppointmentsForDay(state, day) {
-  //state is object
+function getAppointmentsForDay(state, day) {
+  // state is object
   // day is string "Monday" or "Tuesday"
-
+  console.log("state:", state);
   // don't change state, so copy to new array
-  const stateArray = state;
+  const stateObject = state;
 
   // define empty array
   let appointmentsForDay = [];
@@ -13,21 +13,24 @@ export function getAppointmentsForDay(state, day) {
     return appointmentsForDay;
   }
 
-  // for loop over stateArray.days, if stateArray.days[i].name === day ---> add ...stateArray.days[i].appoints to array
-  const numOfDays = stateArray.days.length;
+  // for loop over stateObject.days, if stateObject.days[i].name === day ---> add ...stateObject.days[i].appoints to array
+  const numOfDays = stateObject.days.length;
   for (let i = 0; i < numOfDays; i++) {
-    if (stateArray.days[i].name === day) {
-      const numOfAppointmentsOnDay = stateArray.days[i].appointments.length;
-      const numOfAppointmentsTotal = Object.keys(stateArray.appointments).length;
+    if (stateObject.days[i].name === day) {
+      const numOfAppointmentsOnDay = stateObject.days[i].appointments.length;
+      const numOfAppointmentsTotal = Object.keys(stateObject.appointments).length;
       for (let j = 0; j < numOfAppointmentsOnDay; j++) {
         for (let k = 1; k <= numOfAppointmentsTotal; k++) {
-          if (stateArray.days[i].appointments[j] === stateArray.appointments[k].id) {
-            appointmentsForDay.push(stateArray.appointments[k]);
+          if (stateObject.days[i].appointments[j] === stateObject.appointments[k].id) {
+            appointmentsForDay.push(stateObject.appointments[k]);
           }
         }
       }
     }
   }
+  
+  // const foundDay = state.days.find((selectedDayObj) => selectedDayObj.name ==== day)
+  // const finalArray = foundDay.appointments.map((id) => state.appointments[id])
 
   // return array with appointment numbers for given day
   return appointmentsForDay;
@@ -35,3 +38,13 @@ export function getAppointmentsForDay(state, day) {
 };
 
 
+function getInterview(state, interview) {
+  const interviewObj = {};
+  
+
+  return interviewObj;
+};
+
+
+
+export default { getInterview, getAppointmentsForDay };
