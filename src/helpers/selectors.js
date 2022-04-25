@@ -63,7 +63,7 @@ export function getInterview(state, interview) {
 export function getInterviewersForDay(state, day) {
   // state is object
   // day is string "Monday" or "Tuesday"
-  // console.log("state:", state);
+  console.log("state:", state);
   // don't change state, so copy to new array
   const stateObject = state;
 
@@ -80,12 +80,12 @@ export function getInterviewersForDay(state, day) {
 
   for (let i = 0; i < numOfDays; i++) {
     if (stateObject.days[i].name === day) {
-      const numOfAppointmentsOnDay = stateObject.days[i].appointments.length;
-      const numOfAppointmentsTotal = Object.keys(stateObject.appointments).length;
-      for (let j = 0; j < numOfAppointmentsOnDay; j++) {
-        for (let k = 1; k <= numOfAppointmentsTotal; k++) {
-          if (stateObject.days[i].appointments[j] === stateObject.appointments[k].id) {
-            interviewersForDay.push(stateObject.appointments[k]);
+      const numOfInterviewersOnDay = stateObject.days[i].interviewers.length;
+      const numOfInterviewersTotal = Object.keys(stateObject.interviewers).length;
+      for (let j = 0; j < numOfInterviewersOnDay; j++) {
+        for (let k = 1; k <= numOfInterviewersTotal; k++) {
+          if (stateObject.days[i].interviewers[j] === stateObject.interviewers[k].id) {
+            interviewersForDay.push(stateObject.interviewers[k]);
           }
         }
       }

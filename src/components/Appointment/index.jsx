@@ -22,7 +22,7 @@ export default function Appointment(props) {
       <Header time={props.time}/>
       {mode === CREATE && <Form 
         onCancel={() => back(EMPTY)}
-        interviewers={[]}
+        interviewers={props.interviewers}
       />}
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
