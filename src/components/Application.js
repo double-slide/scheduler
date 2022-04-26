@@ -39,10 +39,76 @@ export default function Application(props) {
   
   dailyAppointments = state.days.length && getAppointmentsForDay(state, state.day);
   
+  function bookInterview(id, interview) {
+    
+    console.log(id, interview);
+    
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    
+    return axios.put(`/api/appointments/${id}`, {interview})
+    .then(function (response) {
+      
+      // console.log(response.status); // ignore this
+
+      setState({
+        ...state,
+        appointments
+      });
+
+    })
+    // .catch(function (error) {
+    //   console.log(error);
+    //   console.log("does this happen");
+    // });
+
+  };
+
+  // DELETE INTERVIEW
+  // changing the local state
+      // application state contains 'state' object
+      // appointments object is direct child of state object
+      // interview is child of appointment --> we want to set this to 'null'
+  // implementing the update
+      // 
+  // making our data persistant
+      // 
+
+  function cancelInterview(id) { 
+    
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    return axios.delete(`/api/appointments/${id}`)
+    .then(() => {
+      setState({
+        ...state,
+        appointments
+      });
+
+    })
+    // .catch(function (error) {
+    //   // console.log(error);
+    // });
+
+  };
+
+
   const dailyInterviewers = getInterviewersForDay(state, state.day);
-  
-
-
   
   const listOfAppointments = dailyAppointments.length && dailyAppointments.map((appointment) => {   
 
@@ -55,8 +121,11 @@ export default function Application(props) {
         time={appointment.time}
         interviewers={dailyInterviewers}
         interview={interview}
+        bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />);
   });
+
 
 
 
