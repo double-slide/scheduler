@@ -7,7 +7,7 @@ import Form from "components/Appointment/Form.jsx";
 import Status from "components/Appointment/Status.jsx";
 import Confirm from "components/Appointment/Confirm.jsx";
 import Error from "components/Appointment/Error.jsx";
-import { useVisualMode } from "hooks/useVisualMode";
+import { useVisualMode } from "hooks/useVisualMode"; 
 
 export default function Appointment(props) {
 
