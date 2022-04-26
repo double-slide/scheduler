@@ -44,7 +44,6 @@ export default function Appointment(props) {
       });
   };
 
-
   const destroy = (id) => {
     transition(CONFIRM);
     transition(DELETING, true);

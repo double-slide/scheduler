@@ -27,8 +27,8 @@ export function useVisualMode(initial) {
     return;
   };
   
-  return { 
-    mode: history[history.length - 1], 
+  return {
+    mode: history[history.length - 1],
     transition, 
     back };
 };

@@ -15,6 +15,8 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
   
+  console.log("state", state);
+
   let dailyAppointments = [];
   dailyAppointments = state.days.length && getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
