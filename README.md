@@ -12,9 +12,10 @@ Scheduler is a project for the Lighthouse Labs Web Development program. The app 
 
 ## Dependencies
 - React
-- Axios
+- Webpack, Babel
+- Axios, WebSockets
 - Node
-- Cypress
+- Storybook, Jest, Cypress, Testing Library
 
 ## Functionality
 - A user can click on a weekday to view interview appointments for that day
