@@ -1,5 +1,5 @@
 # Scheduler
-Scheduler is a project for Lighthouse Labs Web Dev program that uses React. It provides an at-a-glance schedule for each day of the week, where each day has 5 appointment slots. 
+Scheduler is a project for the Lighthouse Labs Web Development program. The app uses React to provide an at-a-glance schedule for each day of the week, where each day has 5 interview appointment slots.
 
 ## Final Product
 !["Example page"](https://github.com/double-slide/scheduler/blob/master/public/images/screen-view1.png "Example page")
