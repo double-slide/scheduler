@@ -4,6 +4,8 @@ import InterviewerListItem from "components/InterviewerListItem"
 
 export default function InterviewerList(props) {
   const interviewers = props.interviewers.map((interviewer) => {
+    
+    // individual list item
     return (
       <InterviewerListItem
         key={interviewer.id}
@@ -14,6 +16,8 @@ export default function InterviewerList(props) {
       />
     );
   });
+
+  // list of interviewers
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>
@@ -22,4 +26,4 @@ export default function InterviewerList(props) {
       </ul>
     </section>
   );
-};
+}

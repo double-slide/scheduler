@@ -7,14 +7,15 @@ export default function Button(props) {
   
   let buttonClass = "button";
   
+  // add classes to button depending on utilization
   buttonClass += classNames(
     { " button--confirm": props.confirm },
     { " button--danger": props.danger },
-  )
+  );
 
   return (
    <>
-    <button 
+    <button
       className={buttonClass}
       onClick={props.onClick}
       disabled={props.disabled}
@@ -22,5 +23,5 @@ export default function Button(props) {
       {props.children}
     </button>
    </>
-   );
-};
+  );
+}

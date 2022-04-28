@@ -14,11 +14,13 @@ export default function DayListItem(props) {
       className={dayClass}
       onClick={() => props.setDay(props.name)}
     >
-      <h2 className="text--regular">{props.name}</h2> 
+      <h2 className="text--regular">{props.name}</h2>
       <h3 className="text--light">{formatSpots(props.spots)}</h3>
     </li>
   );
-};
+}
+
+// return correct wording depending on quantity of spots
 const formatSpots = function(spots) {
 
   if (spots > 1) {

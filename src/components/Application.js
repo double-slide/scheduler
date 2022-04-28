@@ -22,6 +22,7 @@ export default function Application(props) {
   const listOfAppointments = dailyAppointments.length && dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
 
+    // returns individual appointment components
     return (
       <Appointment
         key={appointment.id}
@@ -34,6 +35,7 @@ export default function Application(props) {
       />);
   });
 
+  // main application component
   return (
     <main className="layout">
       <section className="sidebar">
