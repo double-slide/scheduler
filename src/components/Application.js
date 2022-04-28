@@ -3,7 +3,7 @@ import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment/index.jsx";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
-import { useApplicationData } from "hooks/useApplicationData"; 
+import { useApplicationData } from "hooks/useApplicationData";
 
 
 export default function Application(props) {
@@ -15,13 +15,11 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
   
-  console.log("state", state);
-
   let dailyAppointments = [];
   dailyAppointments = state.days.length && getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
-  
-  const listOfAppointments = dailyAppointments.length && dailyAppointments.map((appointment) => {   
+
+  const listOfAppointments = dailyAppointments.length && dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
 
     return (
@@ -64,7 +62,7 @@ export default function Application(props) {
       </section>
     </main>
   );
-};
+}
 
 
 

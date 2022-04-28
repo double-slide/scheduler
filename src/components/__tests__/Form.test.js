@@ -14,7 +14,6 @@ describe("Form", () => {
     }
   ];
 
-
   it("renders without students name if not provided", () => {
     const { getByPlaceholderText } = render(<Form interviewers={interviewers} />);
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
@@ -25,7 +24,6 @@ describe("Form", () => {
     expect(getByTestId("student-name-input")).toHaveValue("Lydia Miller-Jones");
   });
 
-
   it("validates that the student name is not blank", () => {
     const onSave = jest.fn();
     const { getByText } = render(<Form interviewers={interviewers} onSave={onSave} />);
@@ -35,7 +33,6 @@ describe("Form", () => {
     expect(onSave).not.toHaveBeenCalled();
   });
 
-
   it("validates that the interviewer cannot be null", () => {
     const onSave = jest.fn();
     const { getByText } = render(<Form interviewers={interviewers} onSave={onSave} student="Lydia Miller-Jones" />);
@@ -44,7 +41,6 @@ describe("Form", () => {
     expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
     expect(onSave).not.toHaveBeenCalled();
   });
-
   
   it("can successfully save after trying to submit an empty student name", () => {
     const onSave = jest.fn();

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-export function useApplicationData(initial) {
+export const useApplicationData = (initial) => {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -18,32 +18,24 @@ export function useApplicationData(initial) {
       axios.get(`/api/appointments`),
       axios.get(`/api/interviewers`)
     ]).then((results) => {
-      console.log(results[0]);
-      console.log(results[1]);
       setState(prev => ({ ...prev, days: results[0].data, appointments: results[1].data, interviewers: results[2].data }));
     });
   }, []);
-
-
-
   
-  function spotCountUpdate(days, appointments) {
+  const spotCountUpdate = (days, appointments) => {
 
     const updatedDays = days.map((day) => {
       let counter = 0;
       const appointmentArray = day.appointments;
-      for (const appointmentNum of appointmentArray ) {
-        ( !appointments[appointmentNum].interview && counter++ );
+      for (const appointmentNum of appointmentArray) {
+        (!appointments[appointmentNum].interview && counter++);
       }
-      return { ...day, spots: counter } 
+      return { ...day, spots: counter };
     });
     return updatedDays;
   };
 
-
-
-
-  function bookInterview(id, interview) {
+  const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -65,7 +57,7 @@ export function useApplicationData(initial) {
       });
   };
 
-  function cancelInterview(id) {
+  const cancelInterview = (id) => {
     const appointment = {
       ...state.appointments[id],
       interview: null
