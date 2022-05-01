@@ -56,8 +56,8 @@ export default function Appointment(props) {
   return (
     <article className="appointment">
       <Header time={props.time} />
-      {mode === ERROR_DELETE && <Error message={"Delete was not successful"} onClose={() => back(SHOW)} />}
-      {mode === ERROR_SAVE && <Error message={"Save was not successful"} onClose={() => back(CREATE)} />}
+      {mode === ERROR_DELETE && <Error message={"Delete was not successful--close this window to go back to the schedule view"} onClose={() => back(SHOW)} />}
+      {mode === ERROR_SAVE && <Error message={"Save was not successful--close this window to go back to the edit view"} onClose={() => back(CREATE)} />}
       {mode === CONFIRM && <Confirm message={"Are you sure you would like to delete?"} onCancel={() => back(SHOW)} onConfirm={destroy} />}
       {mode === SAVING && <Status message={"Saving..."} />}
       {mode === DELETING && <Status message={"Deleting..."} />}

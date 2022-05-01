@@ -8,7 +8,7 @@ Scheduler is a project for the Lighthouse Labs Web Development program. The app 
 ## Getting Started
 1. Install dependencies using the `npm install` command.
 2. Start the web server using the `npm start` command. The app will be served at <http://localhost:8000/>.
-3. From a separate terminal , ensure `scheduler-api` is running to support the backend.
+3. From a separate terminal , ensure `scheduler-api` is running to support the backend. This can be found at the [scheduler-api repository](https://github.com/double-slide/scheduler-api)--follow the scheduler-api readme for setup details.
 
 ## Dependencies
 - React
