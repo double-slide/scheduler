@@ -7,7 +7,7 @@ import Form from "components/Appointment/Form.jsx";
 import Status from "components/Appointment/Status.jsx";
 import Confirm from "components/Appointment/Confirm.jsx";
 import Error from "components/Appointment/Error.jsx";
-import { useVisualMode } from "hooks/useVisualMode"; 
+import { useVisualMode } from "hooks/useVisualMode";
 
 export default function Appointment(props) {
 
@@ -37,15 +37,14 @@ export default function Appointment(props) {
     props
       .bookInterview(props.id, interview)
       .then(() => {
-        transition(SHOW)
+        transition(SHOW);
       })
       .catch(error => {
-        transition(ERROR_SAVE, true)
+        transition(ERROR_SAVE, true);
       });
   };
 
   const destroy = (id) => {
-    transition(CONFIRM);
     transition(DELETING, true);
 
     props
@@ -57,8 +56,8 @@ export default function Appointment(props) {
   return (
     <article className="appointment">
       <Header time={props.time} />
-      {mode === ERROR_DELETE}
-      {mode === ERROR_SAVE && <Error message={"Test"} onClose={null} />}
+      {mode === ERROR_DELETE && <Error message={"Delete was not successful"} onClose={() => back(SHOW)} />}
+      {mode === ERROR_SAVE && <Error message={"Save was not successful"} onClose={() => back(CREATE)} />}
       {mode === CONFIRM && <Confirm message={"Are you sure you would like to delete?"} onCancel={() => back(SHOW)} onConfirm={destroy} />}
       {mode === SAVING && <Status message={"Saving..."} />}
       {mode === DELETING && <Status message={"Deleting..."} />}
